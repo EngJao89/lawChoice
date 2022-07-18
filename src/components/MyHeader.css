@@ -1,0 +1,12 @@
+.logoImg {
+  height: 50px;
+}
+.toolbarStyle {
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  z-index: 1;
+}
+.title { 
+  display: flex;
+}
