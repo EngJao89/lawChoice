@@ -1,5 +1,12 @@
-import { IonHeader, IonTitle, IonImg, IonToolbar, IonButtons, IonButton } from "@ionic/react";
-import React from "react";
+import { 
+  IonHeader, 
+  IonTitle, 
+  IonImg, 
+  IonToolbar, 
+  IonButtons, 
+  IonButton 
+} from '@ionic/react';
+import React from 'react';
 import './MyHeader.css';
 
 const MyHeader: React.FC = () => {
@@ -12,11 +19,11 @@ const MyHeader: React.FC = () => {
         <IonButtons slot="end">
           <IonButton routerLink="/contact">Contact</IonButton>
         </IonButtons>
-        <IonImg src="assets/images/logo.jpg" class="logoImg" />
-        <IonTitle class="title">Law Choice</IonTitle>
-      </IonToolbar>
+        <IonImg class="logoImg" src="assets/images/scales.svg" />
+        <IonTitle class="ion-text-center">LawChoice</IonTitle>
+      </IonToolbar>    
     </IonHeader>
-  )
-}
+  );
+};
 
 export default MyHeader;
