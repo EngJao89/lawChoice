@@ -1,9 +1,18 @@
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import LawyerList from './pages/LawyerList';
+import LawyerDetail from './pages/LawyerDetail';
+import Faq from './pages/Faq';
+import FaqDetail from './pages/FaqDetail';
+import Blog from './pages/Blog';
+import BlogDetail from './pages/BlogDetail';
+
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -24,20 +33,20 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-setupIonicReact();
-
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route path="/about" component={About} exact={true} />
+        <Route path="/blogpost/:id" component={BlogDetail} exact={true} />
+        <Route path="/blog" component={Blog} exact={true} />
+        <Route path="/faqdetail/:id" component={FaqDetail} exact={true} />
+        <Route path="/faq" component={Faq} exact={true} />
+        <Route path="/lawyerdetail/:id" component={LawyerDetail} exact={true} />
+        <Route path="/lawyerlist" component={LawyerList} exact={true} />
         <Route path="/contact" component={Contact} exact={true} />
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
+        <Route path="/about" component={About} exact={true} />
+        <Route path="/home" component={Home} exact={true} />
+        <Route exact path="/" render={() => <Redirect to="/home" />} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
