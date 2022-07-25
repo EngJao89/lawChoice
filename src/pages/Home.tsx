@@ -38,14 +38,14 @@ const Home: React.FC = () => {
             </IonItem>
           </IonItemGroup>
           <IonItemGroup>
-	          <IonItem button routerLink="/faq">
-      		    <IonImg src="assets/images/faq.jpg" />
-     	      </IonItem>
-      	    <IonItem button routerLink="/faq">
-      		    <IonLabel class="ion-text-center">
+            <IonItem button routerLink="/faq">
+              <IonImg src="assets/images/faq.jpg" />
+            </IonItem>
+            <IonItem button routerLink="/faq">
+              <IonLabel class="ion-text-center">
                 FAQ
               </IonLabel>
-     	      </IonItem>  
+            </IonItem>  
           </IonItemGroup>  
         </IonList>
       </IonContent>
