@@ -1,8 +1,6 @@
 import { 
   IonContent, 
   IonPage, 
-  IonButton, 
-  IonIcon, 
   IonList, 
   IonItem, 
   IonAvatar, 
@@ -12,7 +10,6 @@ import {
 import React, {useState} from 'react';
 import MyHeader from '../components/MyHeader';
 import LawyerListing from './LawyerDB';
-import {arrowBackOutline} from 'ionicons/icons';
 
 const LawyerList: React.FC = () => {
   const [list] = useState<Array<any>>(LawyerListing);
@@ -32,15 +29,11 @@ const LawyerList: React.FC = () => {
   return(
     <IonPage>
       <MyHeader />
-      <IonContent>
-        <IonButton color="light" routerLink="/home">
-          <IonIcon slot="start" icon={arrowBackOutline} />
-            Back
-        </IonButton>
-        <IonList>
-          {currentListing}
-        </IonList>
-      </IonContent>
+        <IonContent>
+          <IonList>
+            {currentListing}
+          </IonList>
+        </IonContent>
     </IonPage>
   );
 };

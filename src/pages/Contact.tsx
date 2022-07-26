@@ -1,22 +1,21 @@
 import { 
   IonPage, 
-  IonHeader, 
   IonToolbar, 
-  IonButtons, 
-  IonBackButton, 
   IonTitle, 
   IonContent, 
   IonInput, 
   IonTextarea, 
   IonFooter, 
-  IonItem, 
-  IonList, 
-  IonItemDivider, 
+  IonItem,  
   IonAlert, 
-  IonLabel 
+  IonLabel, 
+  IonGrid, 
+  IonRow, 
+  IonCol 
 } from '@ionic/react';
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import MyHeader from '../components/MyHeader';
 
 const Contact: React.FC = () => {
   const [name, setName] = useState<string>();
@@ -36,14 +35,6 @@ const Contact: React.FC = () => {
 
   return(
     <IonPage>
-      <IonHeader class="ion-no-border">
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton />
-          </IonButtons>
-          <IonTitle class="ion-text-center"> Contact Us </IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent>
         <IonAlert 
           isOpen={messageAlert}
@@ -53,38 +44,55 @@ const Contact: React.FC = () => {
           message={'Name, Email, or Message cannot be empty!'}
           buttons={['OK']}
         />
-        <IonList>
-          <IonItem>
-            <IonInput value={name} placeholder="Name" 
-              onIonChange={e => setName(e.detail.value!)}>
-            </IonInput>
-              </IonItem>
-            <IonItemDivider></IonItemDivider>
-          <IonItem>
-            <IonInput value={email} placeholder="Email" 
-              onIonChange={e => setEmail(e.detail.value!)}>
-            </IonInput>
-          </IonItem>
-          <IonItemDivider></IonItemDivider>
-          <IonItem>
-            <IonTextarea rows={15} placeholder="Enter message here" value={message} 
-              onIonChange={e => setMessage(e.detail.value!)}>
-            </IonTextarea>
-          </IonItem>
-          <IonItemDivider></IonItemDivider>
-          <IonItem button onClick = {e=> {sendMessage()}}>
-            <IonLabel class="ion-text-center">
-              Send Message
-            </IonLabel>
-          </IonItem>
-        </IonList>
+        <IonGrid fixed={true}>
+          <MyHeader />
+        </IonGrid>
+          <IonRow>
+            <IonCol>
+              <IonInput 
+                value={name} 
+                placeholder="Name" 
+                onIonChange={e => setName(e.detail.value!)}
+              >
+              </IonInput>
+            </IonCol>
+            <IonCol>
+              <IonInput 
+                value={email} 
+                placeholder="Email" 
+                onIonChange={e => setEmail(e.detail.value!)}
+              >
+              </IonInput>
+            </IonCol>
+          </IonRow>
+
+          <IonRow>
+            <IonCol>
+              <IonTextarea 
+                rows={15} 
+                placeholder="Enter message here" 
+                value={message} 
+                onIonChange={e => setMessage(e.detail.value!)}>
+              </IonTextarea>
+            </IonCol>
+          </IonRow>
+
+          <IonRow class="ion-justify-content-center">
+            <IonItem button onClick = {e=> {sendMessage()}}>
+              <IonLabel class="ion-text-center">
+                Send Message
+              </IonLabel>
+            </IonItem>
+          </IonRow>
+          <IonRow>
+            <IonFooter>
+              <IonToolbar>
+                <IonTitle class="ion-text-center">Created by Dream-Makers</IonTitle>
+                <IonTitle class="ion-text-center" size="small">1313 Mockingbird Lane</IonTitle>
+              </IonToolbar>
+            </IonFooter>  
+          </IonRow>
       </IonContent>
-      <IonFooter>
-        <IonToolbar>
-          <IonTitle class="ion-text-center">Created by Dream-Makers</IonTitle>
-          <IonTitle class="ion-text-center" size="small">1313 Mockingbird Lane</IonTitle>
-        </IonToolbar>
-      </IonFooter>  
     </IonPage>
   );
 };
