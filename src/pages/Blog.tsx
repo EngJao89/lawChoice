@@ -1,8 +1,6 @@
 import { 
   IonContent, 
   IonPage, 
-  IonButton, 
-  IonIcon, 
   IonList, 
   IonItem, 
   IonAvatar, 
@@ -13,7 +11,6 @@ import {
 import React, {useState} from 'react';
 import MyHeader from '../components/MyHeader';
 import BlogListing from './BlogDB';
-import {arrowBackOutline} from 'ionicons/icons';
 
 const Blog: React.FC = () => {
   const [posts] = useState<Array<any>>(BlogListing);
@@ -32,10 +29,6 @@ const Blog: React.FC = () => {
     <IonPage>
       <MyHeader />
       <IonContent>
-        <IonButton color="light" routerLink="/home">
-          <IonIcon slot="start" icon={arrowBackOutline} />
-            Back
-        </IonButton>
         <IonList>
           <IonListHeader>
             <h1>Blog</h1>  
