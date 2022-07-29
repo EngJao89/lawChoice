@@ -8,7 +8,9 @@ import {
   IonCardHeader,
   IonCardTitle, 
   IonCardSubtitle, 
-  IonCardContent 
+  IonCardContent, 
+  IonGrid, 
+  IonCol 
 } from '@ionic/react';
 import React, {useState} from 'react';
 import MyHeader from '../components/MyHeader';
@@ -24,14 +26,21 @@ const LawyerDetail: React.FC<any> = ({match}) =>{
 
   return(
     <IonPage>
-      <MyHeader />
       <IonContent>
-        <IonButton color="light" routerLink="/lawyerlist">
-          <IonIcon slot="start" icon={arrowBackOutline} />
-            Back
-        </IonButton>
-        <IonCard>
-          <IonImg class="detailImage" src={selectedLawyer.pic} />
+        <IonGrid fixed={true}>
+
+          <IonCol size="3">   
+            <IonButton color="light" routerLink="/lawyerlist">
+              <IonIcon slot="start" icon={arrowBackOutline} />
+                Back
+            </IonButton>
+          </IonCol>
+          <IonCol size="9">
+            <MyHeader />
+          </IonCol>
+
+          <IonCard>
+            <IonImg class="detailImage" src={selectedLawyer.pic} />
             <IonCardHeader>
               <IonCardTitle>{selectedLawyer.name}</IonCardTitle>
                 <IonCardSubtitle>{selectedLawyer.phone}</IonCardSubtitle>
@@ -40,7 +49,8 @@ const LawyerDetail: React.FC<any> = ({match}) =>{
             <IonCardContent>
               {selectedLawyer.info}
             </IonCardContent>                    
-        </IonCard>
+          </IonCard>
+        </IonGrid>
       </IonContent>
     </IonPage>    
   );
