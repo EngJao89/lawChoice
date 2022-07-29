@@ -2,12 +2,14 @@ import {
   IonPage, 
   IonContent, 
   IonButton, 
-  IonIcon,
+  IonIcon, 
   IonImg, 
   IonCard, 
-  IonCardHeader,
-  IonCardTitle,  
-  IonCardContent 
+  IonCardHeader, 
+  IonCardTitle, 
+  IonCardContent, 
+  IonGrid, 
+  IonCol 
 } from '@ionic/react';
 import React, {useState} from 'react';
 import MyHeader from '../components/MyHeader';
@@ -18,25 +20,32 @@ import {arrowBackOutline} from 'ionicons/icons';
 const BlogDetail: React.FC<any> = ({match}) => {
   const [posts] = useState<Array<any>>(BlogListing);
   const selectedPost = posts.find((post)=>{
-      return post.id === match.params.id;
+    return post.id === match.params.id;
   });
+
   return(
     <IonPage>
-      <MyHeader />
       <IonContent>
-        <IonButton color="light" routerLink="/blog">
-          <IonIcon slot="start" icon={arrowBackOutline} />
-            Back
-        </IonButton>
-        <IonCard>
-          <IonImg class="detailImage" src={selectedPost.pic} />
+        <IonGrid fixed={true}>
+          <IonCol size="3">
+            <IonButton color="light" routerLink="/blog">
+              <IonIcon slot="start" icon={arrowBackOutline} />
+                Back
+            </IonButton>
+          </IonCol>
+          <IonCol size="9">
+            <MyHeader />
+          </IonCol>
+          <IonCard>
+            <IonImg class="detailImage" src={selectedPost.pic} />
             <IonCardHeader>
               <IonCardTitle>{selectedPost.title}</IonCardTitle>
             </IonCardHeader>
             <IonCardContent>
               {selectedPost.post}
             </IonCardContent>
-        </IonCard>
+          </IonCard>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );
