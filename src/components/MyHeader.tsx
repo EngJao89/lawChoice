@@ -3,8 +3,6 @@ import {
   IonTitle, 
   IonImg, 
   IonToolbar, 
-  IonButtons, 
-  IonMenuButton, 
   IonRow 
 } from '@ionic/react';
 import React from 'react';
@@ -15,9 +13,6 @@ const MyHeader: React.FC = () => {
     <IonRow>
       <IonHeader class="ion-no-border">
         <IonToolbar class="toolbarStyle">
-          <IonButtons slot="start">
-            <IonMenuButton autoHide={false} menu="first" />
-          </IonButtons>
           <IonImg class="logoImg" src="assets/images/scales.svg" />
           <IonTitle class="ion-text-center">LawChoice</IonTitle>
         </IonToolbar>    
