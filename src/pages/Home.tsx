@@ -2,7 +2,6 @@ import {
   IonContent, 
   IonPage, 
   IonImg, 
-  useIonViewDidEnter, 
   IonGrid, 
   IonRow, 
   IonCol
@@ -10,15 +9,15 @@ import {
 import React from 'react';
 import MyHeader from '../components/MyHeader';
 import './Home.css';
-import {Plugins} from '@capacitor/core';
+//import {Plugins} from '@capacitor/core';
 const Home: React.FC = () => {
 
-  const {Geolocation} = Plugins;
+  /*const {Geolocation} = Plugins;
   const coordinates = Geolocation.getCurrentPosition();
   useIonViewDidEnter(() => {
     console.log('Location', coordinates);
   });
-  
+  */
   return (
     <IonPage>
       <IonContent>
@@ -67,7 +66,6 @@ const Home: React.FC = () => {
           </IonRow>
 
         </IonGrid>
-        
       </IonContent>
     </IonPage>
   );
