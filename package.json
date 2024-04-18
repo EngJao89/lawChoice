@@ -47,7 +47,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "commit": "cz"
   },
   "eslintConfig": {
     "extends": [
@@ -68,7 +69,14 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "3.6.0"
+    "@capacitor/cli": "3.6.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
